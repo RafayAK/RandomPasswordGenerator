@@ -1,0 +1,233 @@
+/* ---------------------- */
+/* Fonts                  */
+/* ---------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+/* ---------------------- */
+/* Custom properties      */
+/* ---------------------- */
+
+/* Universal styling */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-bright-green: #55f991;
+    --clr-dark-green: #10b981;
+    --clr-very-dark-blue: #1f2937;
+    --clr-dark-blue: #273549;
+    --clr-medium-grey: #d5d4d8;
+    --ff-main: 'Karla', sans-serif;
+    --ff-serif: "Inter", sans-serif;
+}
+
+/* ---------------------- */
+
+body, html {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #1C1C1C;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Allow main to take up available space */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    place-items: center;
+}
+
+.card {
+    background-color: var(--clr-very-dark-blue);
+    height: 550px;
+    width: 550px;
+    box-shadow: inset;
+    border-color: var(--clr-dark-green);
+    border-radius: 2px;
+    border-style: solid;
+}
+
+.title-div {
+    color: white;
+    margin-left: 52px;
+    margin-top: 115px;
+}
+
+h1 {
+    margin-bottom: 0;
+    font-family: var(--ff-serif);
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 40px;
+    /* letter-spacing: -0.025em; */
+    margin-block-end: 10px;
+}
+
+.title-green {
+    color: var(--clr-bright-green);
+}
+
+h2 {
+    color: var(--clr-medium-grey);
+    font-size: 1.1em;
+    font-weight: 400;
+    margin-top: 1;
+    margin-bottom: 1em;
+    font-family: var(--ff-serif);
+}
+
+/* ------------------------ */
+/* ------ Button ---------- */
+/* ------------------------ */
+
+button {
+    background-color: var(--clr-dark-green);
+    font-family: var(--ff-serif);
+    font-weight: 500;
+    font-size: 0.95em;
+    line-height: 24px;
+    color: white;
+    border: none;
+    border-radius: 0.5em;
+    margin-top: 2em;
+    margin-left: 3.5em;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+/* Change button color on hover */
+button:hover {
+    background-color: var(--clr-bright-green);
+}
+
+/* ------------------------ */
+/* ------ Horizontal Line - */
+/* ------------------------ */
+
+hr {
+    background-color: var(--clr-dark-blue);
+    color: var(--clr-dark-blue);
+    height: 2px;
+    border: none;
+    margin: 2.5em;
+}
+
+/* ------------------------ */
+/* ------ Password Form - */
+/* ------------------------ */
+
+.password_form {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    padding-left: 4em;
+    padding-right: 4em;
+    border: none;
+}
+
+.password_item {
+    width: 100%;
+    position: relative; /* Add position relative to enable absolute positioning for pseudo-elements */
+    border-radius: 6px;
+    background-color: var(--clr-dark-blue);
+}
+
+.password_item input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    color: var(--clr-bright-green);
+    width: 100%;
+}
+
+.password_item::before,
+.password_item::after {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0s; /* Immediate visibility change, smooth opacity change */
+}
+
+.password_item::before {
+    content: "";
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 10px) rotate(45deg); /* Adjusted transform value */
+    width: 10px;
+    height: 10px;
+    background-color: var(--clr-dark-green);
+    border: none;
+}
+
+.password_item::after {
+    content: "Copied!";
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 15px); /* Adjusted transform value */
+    background-color: var(--clr-dark-green);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.password_item.copied::before,
+.password_item.copied::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+.password_item.filled:not(.nohover):hover::before {
+    visibility: visible;
+    opacity: 1;
+}
+
+.password_item.filled:not(.nohover):hover::after {
+    content: "Click to copy";
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Footer styling */
+footer {
+    margin-top: auto; /*Pushes the footer to the bottom */
+    background-color: #1C1C1C;
+    padding: 1em 0;
+    width: 100%;
+    text-align: center;
+}
+
+.foot_note {
+    font-family: var(--ff-serif);
+    color: var(--clr-medium-grey);
+    font-size: 0.875rem;
+    line-height: 1.0625rem;
+}
+
+.foot_note a {
+    text-decoration: none;
+    color: var(--clr-bright-green);
+}
+
